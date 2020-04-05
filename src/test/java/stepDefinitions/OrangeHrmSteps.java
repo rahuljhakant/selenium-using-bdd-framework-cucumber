@@ -7,12 +7,9 @@ import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class OrangeHrmSteps {
-
-    WebDriver driver;
+public class OrangeHrmSteps extends BaseClass {
 
     @Given("I launch chrome browser")
     public void i_launch_chrome_browser() {
