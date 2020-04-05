@@ -105,4 +105,6 @@ public class AddCustomerPage extends BaseClass {
     public void click_on_saveButton() {
         driver.findElement(save_button).click();
     }
+
+
 }

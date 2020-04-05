@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObjects.AddCustomerPage;
 import pageObjects.LoginPage;
+import pageObjects.SearchCustomerPage;
 
 public class LoginSteps extends BaseClass {
 
@@ -119,8 +120,52 @@ public class LoginSteps extends BaseClass {
     }
 
     @Then("user can view confirmation message {string}")
-    public void user_can_view_confirmation_message(String string) {
+    public void user_can_view_confirmation_message(String string) throws InterruptedException {
         Assert.assertTrue(driver.findElement(By.tagName("body")).getText().contains("The new customer has been added successfully."));
+        driver.navigate().refresh();
+        Thread.sleep(5000);
+    }
+
+    // steps for searching a customer using email id
+
+    @When("enter customer email")
+    public void enter_customer_email() {
+        searchCustomerPage = new SearchCustomerPage(driver);
+        searchCustomerPage.setTxtEmail("victoria_victoria@nopCommerce.com");
+    }
+
+    @When("click on search button")
+    public void click_on_search_button() throws InterruptedException {
+        searchCustomerPage.clickOnSearch();
+        Thread.sleep(4000);
+    }
+
+    @Then("user should found email in the search table")
+    public void user_should_found_email_in_the_search_table() throws InterruptedException {
+        Thread.sleep(5000);
+        boolean status = searchCustomerPage.searchCustomerByEmailID("victoria_victoria@nopCommerce.com");
+        Assert.assertEquals(true, status);
+    }
+
+    // Steps for searching a customer by using First name and Last name
+
+    @When("enter customer First name")
+    public void enter_customer_First_name() throws InterruptedException {
+        searchCustomerPage = new SearchCustomerPage(driver);
+        Thread.sleep(4000);
+        searchCustomerPage.setTxtFirstName("Victoria");
+    }
+
+    @When("enter customer Last name")
+    public void enter_customer_Last_name() throws InterruptedException {
+        Thread.sleep(4000);
+        searchCustomerPage.setTxtLastName("Terces");
+    }
+
+    @Then("user should found Name in the search table")
+    public void user_should_found_Name_in_the_search_table() {
+        boolean status = searchCustomerPage.searchCustomerByName("Victoria Terces");
+        Assert.assertEquals(true, status);
     }
 
 }
