@@ -1,5 +1,6 @@
 Feature: OrangeHRM Login
 
+  @regression
   Scenario: Logo presence on Orange HRM Homepage
     Given I launch chrome browser
     When I open OrangeHRM home page

@@ -1,5 +1,6 @@
 Feature: Login
 
+  @ad-hoc
   Scenario: User login with username and password
     Given User launch Chrome browser
     When user opens URL "https://admin-demo.nopcommerce.com/"
@@ -11,6 +12,7 @@ Feature: Login
     Then Page title should be "Your store. Login"
     And Close browser
 
+  @sanity
   Scenario Outline: Login data driven
     Given User launch Chrome browser
     When user opens URL "https://admin-demo.nopcommerce.com/"

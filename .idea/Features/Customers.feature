@@ -7,6 +7,7 @@ Feature: Customer
     And Enter valid password "admin"
     And Click on login button
 
+  @sanity
   Scenario: Add a new customer
     Then Page title should be title "Dashboard / nopCommerce administration"
     When user clicks on customer menu
@@ -18,6 +19,7 @@ Feature: Customer
     Then user can view confirmation message "The new customer has been added successfully."
     And Close browser
 
+  @regression
   Scenario: Search customer by using email id
     When user clicks on customer menu
     And click on customer menu item
@@ -26,6 +28,7 @@ Feature: Customer
     Then user should found email in the search table
     And Close browser
 
+    @ad-hoc
   Scenario: Search customer by First name and Last name
     When user clicks on customer menu
     And click on customer menu item
