@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="selenium-using-bdd" />
+        <module name="selenium-using-bdd-framework-cucumber" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="9" />
